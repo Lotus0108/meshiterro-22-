@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   
   resources :post_images, only:[:new, :create, :index, :show] do
   resources :post_comments, only:[:create, :destroy]
-  
+  resource :favorites, only:[:create, :destroy]
   end
+  
   resources :users, only:[:show, :edit, :update]
 
   get 'homes/about' => "homes#index", as: "about"
